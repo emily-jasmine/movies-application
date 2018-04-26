@@ -32,27 +32,29 @@ import {getMovies} from './api.js';
 // });
 
 
-getMovies().then((movies) => {
+getMovies()
+.then((movies) => {
     movies.forEach((movie) => {
         $('#movieCards').append(
             `<div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">${movie.title}</h5>
-                <p class="card-text">Rating: ${movie.rating}</p>
-                <a id="${movie.id}" class="btn btn-primary delete">Delete Movie</a>
-              </div>
+                <img class="card-img-top" src="" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${movie.title}</h5>
+                    <p class="card-text">Rating: ${movie.rating}</p>
+                    <a id="${movie.id}" class="btn btn-primary delete">Delete Movie</a>
+                </div>
             </div>`)
         });
-}).then(() => {
+})
+.then(() => {
     $(".delete").on('click', function(event){
         event.preventDefault();
         var id = event.target.id;
         console.log(id);
         deleteMovie(id);
     });
-
-}).catch(error => console.error(error));
+})
+.catch(error => console.error(error));
 
 const showPage = () => {
     $('#loader').css('display','none');
