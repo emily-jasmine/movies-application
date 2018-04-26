@@ -31,30 +31,36 @@ import {getMovies} from './api.js';
 //   console.log(error);
 // });
 
-
-getMovies()
-.then((movies) => {
-    movies.forEach((movie) => {
-        $('#movieCards').append(
-            `<div class="card" style="width: 18rem;">
+function generateCards() {
+    let html = "";
+    getMovies()
+        .then((movies) => {
+            movies.forEach((movie) => {
+                html +=
+                    `<div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${movie.title}</h5>
                     <p class="card-text">Rating: ${movie.rating}</p>
                     <a id="${movie.id}" class="btn btn-primary delete">Delete Movie</a>
                 </div>
-            </div>`)
-        });
-})
-.then(() => {
-    $(".delete").on('click', function(event){
-        event.preventDefault();
-        var id = event.target.id;
-        console.log(id);
-        deleteMovie(id);
-    });
-})
-.catch(error => console.error(error));
+                </div>`
+            });
+            $('#movieCards').html(html);
+        })
+        .then(() => {
+            $(".delete").on('click', function (event) {
+                event.preventDefault();
+                var id = event.target.id;
+                console.log(id);
+                deleteMovie(id);
+            });
+        })
+        .then(generateCards)
+        .catch(error => console.error(error));
+}
+
+generateCards();
 
 const showPage = () => {
     $('#loader').css('display','none');

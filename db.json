@@ -1,15 +1,22 @@
 {
   "movies": [
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
-      "id": 2
-    },
-    {
-      "title": "Moana",
+      "title": "Jurassic World",
       "genre": "Adventure",
       "rating": "5",
-      "id": 3
+      "id": 5
+    },
+    {
+      "title": "Tangled",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 8
+    },
+    {
+      "title": "Coco",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 9
     }
   ]
 }
