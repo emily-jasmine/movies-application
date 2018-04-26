@@ -43,7 +43,8 @@ function generateCards() {
                     <h5 class="card-title">${movie.title}</h5>
                     <p class="card-text">Rating: ${movie.rating}</p>
                     <a id="${movie.id}" class="btn btn-primary delete">Delete Movie</a>
-                </div>
+                    <button type="button" data-toggle="modal" data-target="#editModal" class="btn btn-primary edit">Edit Movie</button>
+                    </div>
                 </div>`
             });
             $('#movieCards').html(html);
@@ -56,6 +57,14 @@ function generateCards() {
                 deleteMovie(id);
             });
         })
+        // .then(() => {
+        //     $(".edit").on('click', function (event) {
+        //         event.preventDefault();
+        //         var id = event.target.id;
+        //         console.log(id);
+        //         deleteMovie(id);
+        //     });
+        // })
         .then(generateCards)
         .catch(error => console.error(error));
 }
