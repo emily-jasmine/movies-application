@@ -4,6 +4,8 @@
 import 'bootstrap'
 import $ from 'jquery'
 
+
+
 $(() => {
     $('[data-toggle="popover"]').popover()
 });
@@ -30,11 +32,27 @@ import {getMovies} from './api.js';
 // });
 
 
-// getMovies().then((movies) => {
-//     movies.forEach((movie) => {
-//         console.log(movie);
-//     })
-// }).catch(error => console.error(error));
+getMovies().then((movies) => {
+    movies.forEach((movie) => {
+        $('#movieCards').append(
+            `<div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">${movie.title}</h5>
+                <p class="card-text">Rating: ${movie.rating}</p>
+                <a id="${movie.id}" class="btn btn-primary delete">Delete Movie</a>
+              </div>
+            </div>`)
+        });
+}).then(() => {
+    $(".delete").on('click', function(event){
+        event.preventDefault();
+        var id = event.target.id;
+        console.log(id);
+        deleteMovie(id);
+    });
+
+}).catch(error => console.error(error));
 
 const showPage = () => {
     $('#loader').css('display','none');
@@ -53,7 +71,4 @@ $('#submitMovie').on('click', function(){
         rating: ($('#newMovieRating').val().toString())})
 });
 
-// $('#deleteMovie').('click', function(){
-//     deleteMovie()
-// });
 
