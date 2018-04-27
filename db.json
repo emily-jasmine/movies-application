@@ -17,6 +17,18 @@
       "genre": "../img/clapboard-open.jpg",
       "rating": "5",
       "id": 6
+    },
+    {
+      "title": "Up",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 10
+    },
+    {
+      "title": "Finding Nemo",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 11
     }
   ]
 }
