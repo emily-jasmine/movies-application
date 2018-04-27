@@ -27,7 +27,7 @@ body {
     width: 150px;
     height: 150px;
     margin: -75px 0 0 -75px;
-    border: 16px solid #f3f3f3;
+    border: 16px solid lightgrey;
     border-radius: 50%;
     border-top: 16px solid #D9E254;
     width: 120px;
@@ -94,7 +94,9 @@ input#newMovieTitle.form-control {
 select#newMovieGenre.form-control {
     color: #531CB3;
 }
-
+#search-movie {
+    margin-bottom: 20px;
+}
 .btn.btn-secondary {
     background-color: #D9E254;
     border: none;
