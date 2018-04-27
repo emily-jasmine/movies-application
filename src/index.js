@@ -38,7 +38,7 @@ function generateCards() {
             movies.forEach((movie) => {
                 html +=
                 `<div class="card" style="width: 18rem;">
-                    <!--<img class="card-img-top" src="" alt="Card image cap">-->
+                    <img id="card-image" class="card-img-top" src="" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${movie.title}</h5>
                         <p class="card-text">Rating: ${movie.rating}</p>
