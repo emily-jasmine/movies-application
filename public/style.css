@@ -57,3 +57,9 @@ body {
     text-align: center;
 }
 
+form {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+

@@ -1,34 +1,28 @@
 {
   "movies": [
     {
-      "title": "Coco edit",
-      "genre": "Adventure",
-      "rating": "3",
-      "id": 9
-    },
-    {
-      "title": "Jurassic Park",
+      "title": "Frozen",
       "genre": "Adventure",
       "rating": "4",
-      "id": 10
+      "id": 2
     },
     {
-      "title": "Tangled 2",
+      "title": "Moana 2",
       "genre": "Adventure",
-      "rating": "4",
-      "id": 11
+      "rating": "2",
+      "id": 3
     },
     {
-      "title": "Tangled 2",
-      "genre": "Comedy",
-      "rating": "4",
-      "id": 12
+      "title": "The Shining 2",
+      "genre": "Horror",
+      "rating": "2",
+      "id": 4
     },
     {
-      "title": "Conair",
-      "genre": "Action",
-      "rating": "3",
-      "id": 14
+      "title": "Ready Player 2",
+      "genre": "Adventure",
+      "rating": "1",
+      "id": 5
     }
   ]
 }

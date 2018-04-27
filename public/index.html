@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="loader"></div>
-<div style="display:none;" id="myDiv" class="animate-bottom">
+<div style="display:none;" id="myDiv" class="animate-bottom mx-auto">
 
     <h1>Movies!</h1>
     <form>
@@ -23,6 +23,7 @@
     <div class="form-group">
         <label for="newMovieGenre">Movie Genre</label>
         <select class="movieGenre form-control" id="newMovieGenre">
+            <option selected="selected" value=0>Select a genre</option>
             <option>Action</option>
             <option>Adventure</option>
             <option>Comedy</option>
@@ -41,7 +42,8 @@
             <option value=5>5</option>
         </select>
     </div>
-    <button type="button" class="btn btn-secondary submitButton" id="submitMovie">Submit Movie</button>
+    <button type="button" class="btn btn-secondary" id="submitNewMovie">Submit New Movie</button>
+    <button type="button" class="btn btn-secondary" id="submitEdit">Submit Edits</button>
     </form>
     <div class="card-columns" id="movieCards"></div>
     <!--<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->

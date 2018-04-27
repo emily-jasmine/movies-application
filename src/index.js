@@ -38,11 +38,11 @@ function generateCards() {
             movies.forEach((movie) => {
                 html +=
                 `<div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="" alt="Card image cap">
+                    <!--<img class="card-img-top" src="" alt="Card image cap">-->
                     <div class="card-body">
                         <h5 class="card-title">${movie.title}</h5>
                         <p class="card-text">Rating: ${movie.rating}</p>
-                        <a id="${movie.id}" class="btn btn-primary delete">Delete Movie</a>
+                        <a id="${movie.id}" class="btn btn-danger delete">Delete Movie</a>
                         <a id="movie_${movie.id}" class="btn btn-primary edit">Edit Movie</a>
                     </div>
                 </div>`
@@ -53,26 +53,28 @@ function generateCards() {
             $(".delete").on('click', function (event) {
                 var id = event.target.id;
                 event.preventDefault();
-                console.log(id);
                 deleteMovie(id);
             });
         })
         .then(() => {
             $('.edit').on('click', function(event) {
                 let id = event.target.id;
-                const movieId = convertId(id);
+                let movieId = convertId(id);
+                let movieTitle = $(event.target).parent().children('h5').text();
                 console.log(movieId);
+                console.log(movieTitle);
                 $('#addOrEdit').html('Edit A Movie');
-                $('.movieTitle').toggleClass('editMovieTitle');
-                $('.movieGenre').toggleClass('editMovieGenre');
-                $('.movieRating').toggleClass('editMovieRating');
-                $('.submitButton').toggleClass('submitEditedMovie');
-                $('.submitEditedMovie').on('click', function() {
+                $('.movieTitle').addClass('editMovieTitle').val(movieTitle);
+                $('.movieGenre').addClass('editMovieGenre');
+                $('.movieRating').addClass('editMovieRating');
+                $('#submitEdit').on('click', function() {
                     editMovie(movieId, {
                         title: ($('.movieTitle').val().toString()),
                         genre: ($('.movieGenre').val().toString()),
                         rating: ($('.movieRating').val().toString())
-                    })
+                    });
+                    movieId = '';
+                    $('.movieTitle').val("");
                 })
             })
         })
@@ -93,11 +95,12 @@ const loadingTimer = () => {
 
 $(document).ready(loadingTimer());
 
-$('#submitMovie').on('click', function(){
+$('#submitNewMovie').on('click', function(){
     addMovie({title: ($('#newMovieTitle').val().toString()),
         genre: ($('#newMovieGenre').val().toString()),
         rating: ($('#newMovieRating').val().toString())});
     generateCards();
+    $('#newMovieTitle').val('');
 });
 
 
