@@ -10,7 +10,7 @@ module.exports = {
 
   populateImage: (genre) => {
     //let genre = $('#newMovieGenre').val();
-      console.log(genre);
+    //   console.log(genre);
       switch (genre) {
         case "Action":
           return "/img/action.png";
@@ -32,7 +32,7 @@ module.exports = {
   },
     populateStars: (rating) => {
         //let genre = $('#newMovieGenre').val();
-        console.log(rating);
+        // console.log(rating);
         switch (rating) {
             case "1":
                 return "⭐";
@@ -54,6 +54,8 @@ module.exports = {
     var rest = input.substring(1).toLowerCase();
     return first + rest;
   },
+
+
 
 
 };

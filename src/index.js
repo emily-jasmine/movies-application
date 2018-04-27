@@ -103,6 +103,24 @@ $('#submitNewMovie').on('click', function(){
     $('#newMovieTitle').val('');
 });
 
+let movieGenreFilter = ($('#filter-by-genre').val().toString());
+
+$('')
+
+var filteredMovies = [];
+
+$('#filter-by-genre').change(function() {
+    getMovies()
+    .then((movies) => {
+            movies.forEach((movie) => {
+                if (movie.genre.toString() === movieGenreFilter) {
+                    filteredMovies.push(movie);
+                }
+           });
+        console.log(filteredMovies)
+        });
+});
+
 
 
 
