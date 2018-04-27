@@ -23,7 +23,14 @@ module.exports = {
         case "Horror":
           return "/img/horror.png"
     }
-  }
+  },
+
+    capitalize: (input) => {
+    input = input.toString();
+    var first = input[0].toUpperCase();
+    var rest = input.substring(1).toLowerCase();
+    return first + rest;
+  },
 
 
 };

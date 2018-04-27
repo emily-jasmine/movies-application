@@ -35,6 +35,12 @@
       "genre": "Adventure",
       "rating": "5",
       "id": 6
+    },
+    {
+      "title": " The Little Mermaid",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 7
     }
   ]
 }

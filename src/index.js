@@ -4,8 +4,6 @@
 import 'bootstrap'
 import $ from 'jquery'
 
-
-
 $(() => {
     $('[data-toggle="popover"]').popover()
 });
@@ -19,17 +17,8 @@ import deleteMovie from './deleteMovie.js';
 
 import editMovie from './editMovies.js';
 
-import {getMovies, convertId, populateImage} from './api.js';
+import {getMovies, convertId, populateImage, capitalize} from './api.js';
 
-// getMovies().then((movies) => {
-//   console.log('Here are all the movies:');
-//   movies.forEach(({title, rating, id}) => {
-//     console.log(`id#${id} - ${title} - rating: ${rating}`);
-//   });
-// }).catch((error) => {
-//   alert('Oh no! Something went wrong.\nCheck the console for details.')
-//   console.log(error);
-// });
 
 function generateCards() {
     let html = "";
@@ -37,7 +26,7 @@ function generateCards() {
         .then((movies) => {
             movies.forEach((movie) => {
                 html +=
-                `<div class="card" style="width: 18rem;">
+                `<div class="card" >
                     <img id="card-image" class="card-img-top" src="${populateImage(movie.genre)}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${movie.title}</h5>
@@ -88,17 +77,26 @@ generateCards();
 
 const showPage = () => {
     $('#loader').css('display','none');
-    $('#myDiv').css('display','block')
+    $('#mainBodyDiv').css('display','block')
 };
 
 const loadingTimer = () => {
   const loader = setTimeout(showPage, 3000)
 };
 
+const capitalizeEachWord = (input) => {
+    var inputArray = input.split(" ");
+    var output = "";
+    inputArray.forEach(function(word){
+        output += " " + capitalize(word);
+    });
+    return output;
+};
+
 $(document).ready(loadingTimer());
 
 $('#submitNewMovie').on('click', function(){
-    addMovie({title: ($('#newMovieTitle').val().toString()),
+    addMovie({title: capitalizeEachWord($('#newMovieTitle').val().toString()),
         genre: ($('#newMovieGenre').val().toString()),
         rating: ($('#newMovieRating').val().toString())});
     generateCards();
@@ -106,10 +104,5 @@ $('#submitNewMovie').on('click', function(){
 });
 
 
-
-// $('#editMovieSubmit').on('click', function(){
-//     console.log(event.target.id);
-//     editMovie(id, movie);
-// });
 
 
