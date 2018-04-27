@@ -25,6 +25,7 @@ body {
     height: 120px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
+
 }
 
 #submitMovie {
@@ -33,6 +34,8 @@ body {
     margin-bottom: 20px;
     background-color: #D9E254;
     border: none;
+    color: #531CB3;
+
 }
 
 
@@ -73,3 +76,18 @@ body {
     text-align: center;
 }
 
+input#newMovieTitle.form-control {
+    color: #531CB3;
+}
+
+input#newMovieTitle.form-control {
+    color: #531CB3;
+}
+select#newMovieGenre.form-control {
+    color: #531CB3;
+}
+
+.btn {
+    background-color: #D9E254;
+    border: none;
+}
