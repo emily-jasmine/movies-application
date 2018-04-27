@@ -59,19 +59,19 @@ function generateCards() {
         })
         .then(() => {
             $('.edit').on('click', function(event) {
-                const id = event.target.id;
+                let id = event.target.id;
                 const movieId = convertId(id);
                 console.log(movieId);
                 $('#addOrEdit').html('Edit A Movie');
-                $('#newMovieTitle').toggleClass('editMovieTitle');
-                $('#newMovieGenre').toggleClass('editMovieGenre');
-                $('#newMovieRating').toggleClass('editMovieRating');
-                $('#submitMovie').toggleClass('submitEditedMovie');
-                $('#submitEditedMovie').on('click', function() {
+                $('.movieTitle').toggleClass('editMovieTitle');
+                $('.movieGenre').toggleClass('editMovieGenre');
+                $('.movieRating').toggleClass('editMovieRating');
+                $('.submitButton').toggleClass('submitEditedMovie');
+                $('.submitEditedMovie').on('click', function() {
                     editMovie(movieId, {
-                        title: ($('#editMovieTitle').val().toString()),
-                        genre: ($('#editMovieGenre').val().toString()),
-                        rating: ($('#editMovieRating').val().toString())
+                        title: ($('.movieTitle').val().toString()),
+                        genre: ($('.movieGenre').val().toString()),
+                        rating: ($('.movieRating').val().toString())
                     })
                 })
             })

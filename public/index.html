@@ -17,12 +17,12 @@
     <h3 id="addOrEdit">Add A New Movie!</h3>
     <div class="form-group">
         <label for="newMovieTitle">Movie Title</label>
-        <input type="text" class="form-control" id="newMovieTitle" placeholder="Enter movie title">
+        <input type="text" class="movieTitle form-control" id="newMovieTitle" placeholder="Enter movie title">
     </div>
     <!--genre-->
     <div class="form-group">
         <label for="newMovieGenre">Movie Genre</label>
-        <select class="form-control" id="newMovieGenre">
+        <select class="movieGenre form-control" id="newMovieGenre">
             <option>Action</option>
             <option>Adventure</option>
             <option>Comedy</option>
@@ -33,7 +33,7 @@
     <!--rating-->
     <div class="form-group">
         <label for="newMovieRating">Star Rating</label>
-        <select multiple class="form-control" id="newMovieRating">
+        <select multiple class="movieRating form-control" id="newMovieRating">
             <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -41,7 +41,7 @@
             <option value=5>5</option>
         </select>
     </div>
-    <button type="button" class="btn btn-secondary" id="submitMovie">Submit Movie</button>
+    <button type="button" class="btn btn-secondary submitButton" id="submitMovie">Submit Movie</button>
     </form>
     <div class="card-columns" id="movieCards"></div>
     <!--<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
