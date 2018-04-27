@@ -1,11 +1,14 @@
 * {
     color: #531CB3;
+
 }
 
 html, body {
     height: 100%;
 }
 
+
+}
 body {
     background-color: #F1EFF7;
 }
@@ -91,6 +94,8 @@ select#newMovieGenre.form-control {
 .btn {
     background-color: #D9E254;
     border: none;
+    color: #531CB3;
+
 }
 
 form {
