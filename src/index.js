@@ -17,7 +17,7 @@ import deleteMovie from './deleteMovie.js';
 
 import editMovie from './editMovies.js';
 
-import {getMovies, convertId, populateImage, capitalize} from './api.js';
+import {getMovies, convertId, populateImage, capitalize, populateStars} from './api.js';
 
 
 function generateCards() {
@@ -30,10 +30,10 @@ function generateCards() {
                     <img id="card-image" class="card-img-top" src="${populateImage(movie.genre)}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${movie.title}</h5>
-                        <p class="card-text">Rating: ${movie.rating}</p>
+                        <p class="card-text">${populateStars(movie.rating)}</p>
                         <p class="card-text">Genre: ${movie.genre}</p>
-                        <a id="${movie.id}" class="btn btn-danger delete">Delete Movie</a>
-                        <a id="movie_${movie.id}" class="btn btn-primary edit">Edit Movie</a>
+                        <a id="${movie.id}" class="btn btn-danger delete text-white">Delete Movie</a>                    
+                        <a id="movie_${movie.id}" class="btn btn-primary edit text-white">Edit Movie</a>
                     </div>
                 </div>`
             });
