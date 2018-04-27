@@ -19,7 +19,7 @@ import deleteMovie from './deleteMovie.js';
 
 import editMovie from './editMovies.js';
 
-import {getMovies} from './api.js';
+import {getMovies, convertId} from './api.js';
 
 // getMovies().then((movies) => {
 //   console.log('Here are all the movies:');
@@ -38,13 +38,12 @@ function generateCards() {
             movies.forEach((movie) => {
                 html +=
                 `<div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="" alt="Card image cap">
+                    <!--<img class="card-img-top" src="" alt="Card image cap">-->
                     <div class="card-body">
                         <h5 class="card-title">${movie.title}</h5>
                         <p class="card-text">Rating: ${movie.rating}</p>
-                        <a id="${movie.id}" class="btn btn-primary delete">Delete Movie</a>
-                        <button type="button" data-toggle="modal" data-target="#editModal" class="btn btn-primary edit"
-                        id="movie_${movie.id}" data-title="${movie.title}" data-rating="${movie.rating}">Edit Movie</button>
+                        <a id="${movie.id}" class="btn btn-danger delete">Delete Movie</a>
+                        <a id="movie_${movie.id}" class="btn btn-primary edit">Edit Movie</a>
                     </div>
                 </div>`
             });
@@ -52,22 +51,31 @@ function generateCards() {
         })
         .then(() => {
             $(".delete").on('click', function (event) {
-                event.preventDefault();
                 var id = event.target.id;
-                console.log(id);
+                event.preventDefault();
                 deleteMovie(id);
             });
         })
         .then(() => {
             $('.edit').on('click', function(event) {
-                event.preventDefault();
-                var id = event.target.id;
-                console.log(id);
-                function isolateIdNumber(id) {
-                    idNumber = id.remove('movie_');
-                    console.log(idNumber);
-                    return idNumber;
-                }
+                let id = event.target.id;
+                let movieId = convertId(id);
+                let movieTitle = $(event.target).parent().children('h5').text();
+                console.log(movieId);
+                console.log(movieTitle);
+                $('#addOrEdit').html('Edit A Movie');
+                $('.movieTitle').addClass('editMovieTitle').val(movieTitle);
+                $('.movieGenre').addClass('editMovieGenre');
+                $('.movieRating').addClass('editMovieRating');
+                $('#submitEdit').on('click', function() {
+                    editMovie(movieId, {
+                        title: ($('.movieTitle').val().toString()),
+                        genre: ($('.movieGenre').val().toString()),
+                        rating: ($('.movieRating').val().toString())
+                    });
+                    movieId = '';
+                    $('.movieTitle').val("");
+                })
             })
         })
         .then(generateCards)
@@ -87,10 +95,12 @@ const loadingTimer = () => {
 
 $(document).ready(loadingTimer());
 
-$('#submitMovie').on('click', function(){
+$('#submitNewMovie').on('click', function(){
     addMovie({title: ($('#newMovieTitle').val().toString()),
         genre: ($('#newMovieGenre').val().toString()),
-        rating: ($('#newMovieRating').val().toString())})
+        rating: ($('#newMovieRating').val().toString())});
+    generateCards();
+    $('#newMovieTitle').val('');
 });
 
 

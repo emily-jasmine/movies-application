@@ -76,6 +76,7 @@ body {
     text-align: center;
 }
 
+
 input#newMovieTitle.form-control {
     color: #531CB3;
 }
@@ -91,3 +92,10 @@ select#newMovieGenre.form-control {
     background-color: #D9E254;
     border: none;
 }
+
+form {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+

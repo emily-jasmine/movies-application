@@ -1,19 +1,25 @@
 {
   "movies": [
     {
-      "title": "Jurassic World",
+      "title": "Frozen",
       "genre": "Adventure",
-      "rating": "5",
-      "id": 5
+      "rating": "4",
+      "id": 2
     },
     {
-      "title": "Tangled",
+      "title": "Moana 2",
       "genre": "Adventure",
-      "rating": "5",
-      "id": 8
+      "rating": "2",
+      "id": 3
     },
     {
-      "title": "Coco",
+      "title": "The Shining 2",
+      "genre": "Horror",
+      "rating": "2",
+      "id": 4
+    },
+    {
+      "title": "Ready Player 2",
       "genre": "Adventure",
       "rating": "5",
       "id": 9
