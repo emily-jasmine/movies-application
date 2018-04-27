@@ -21,8 +21,20 @@
     {
       "title": "Ready Player 2",
       "genre": "Adventure",
-      "rating": "1",
-      "id": 5
+      "rating": "5",
+      "id": 9
+    },
+    {
+      "title": "Up",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 10
+    },
+    {
+      "title": "Finding Nemo",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 11
     }
   ]
 }

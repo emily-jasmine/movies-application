@@ -1,9 +1,13 @@
+* {
+    color: #531CB3;
+}
+
 html, body {
     height: 100%;
 }
 
 body {
-    background-color: papayawhip;
+    background-color: #F1EFF7;
 }
 
 #loader {
@@ -21,7 +25,22 @@ body {
     height: 120px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
+
 }
+
+#submitMovie {
+    width: 500px;
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #D9E254;
+    border: none;
+    color: #531CB3;
+
+}
+
+
+
+
 
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
@@ -55,6 +74,23 @@ body {
 #myDiv {
     display: none;
     text-align: center;
+}
+
+
+input#newMovieTitle.form-control {
+    color: #531CB3;
+}
+
+input#newMovieTitle.form-control {
+    color: #531CB3;
+}
+select#newMovieGenre.form-control {
+    color: #531CB3;
+}
+
+.btn {
+    background-color: #D9E254;
+    border: none;
 }
 
 form {
