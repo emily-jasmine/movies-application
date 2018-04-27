@@ -19,7 +19,7 @@ import deleteMovie from './deleteMovie.js';
 
 import editMovie from './editMovies.js';
 
-import {getMovies, convertId} from './api.js';
+import {getMovies, convertId, populateImage} from './api.js';
 
 // getMovies().then((movies) => {
 //   console.log('Here are all the movies:');
@@ -38,10 +38,11 @@ function generateCards() {
             movies.forEach((movie) => {
                 html +=
                 `<div class="card" style="width: 18rem;">
-                    <img id="card-image" class="card-img-top" src="" alt="Card image cap">
+                    <img id="card-image" class="card-img-top" src="${populateImage(movie.genre)}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${movie.title}</h5>
                         <p class="card-text">Rating: ${movie.rating}</p>
+                        <p class="card-text">Genre: ${movie.genre}</p>
                         <a id="${movie.id}" class="btn btn-danger delete">Delete Movie</a>
                         <a id="movie_${movie.id}" class="btn btn-primary edit">Edit Movie</a>
                     </div>
@@ -75,6 +76,7 @@ function generateCards() {
                     });
                     movieId = '';
                     $('.movieTitle').val("");
+                    $('#addOrEdit').html('Add A New Movie!');
                 })
             })
         })
