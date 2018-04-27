@@ -61,6 +61,7 @@ function generateCards() {
             $('.edit').on('click', function(event) {
                 let id = event.target.id;
                 let movieId = convertId(id);
+                $('.movieTitle').val("");
                 let movieTitle = $(event.target).parent().children('h5').text();
                 console.log(movieId);
                 console.log(movieTitle);
@@ -75,7 +76,6 @@ function generateCards() {
                         rating: ($('.movieRating').val().toString())
                     });
                     movieId = '';
-                    $('.movieTitle').val("");
                     $('#addOrEdit').html('Add A New Movie!');
                 })
             })

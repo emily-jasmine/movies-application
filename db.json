@@ -1,7 +1,7 @@
 {
   "movies": [
     {
-      "title": "Up",
+      "title": "Frozen ",
       "genre": "Adventure",
       "rating": "5",
       "id": 1
@@ -29,6 +29,12 @@
       "genre": "Action",
       "rating": "4",
       "id": 5
+    },
+    {
+      "title": "Frozen ",
+      "genre": "Adventure",
+      "rating": "5",
+      "id": 6
     }
   ]
 }
